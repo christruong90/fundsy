@@ -41,6 +41,15 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem "nyan-cat-formatter"
+  gem 'simple_form'
+  gem "bootstrap-sass"
+  gem "quiet_assets"
+  gem 'geocoder'
+  gem 'gmaps4rails'
+  gem "underscore-rails"
+  gem "sidekiq"
+  gem 'cocoon'
+  gem 'sinatra', require: false
 end
 
 group :development do

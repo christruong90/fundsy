@@ -15,7 +15,7 @@ RSpec.describe UsersController, type: :controller do
     # end
 
   end
-
+  
   describe "#create" do
     context "with valid attributes" do
       def valid_request

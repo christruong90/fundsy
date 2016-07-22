@@ -1,0 +1,22 @@
+<h1>Nearby Campaigns</h1>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @markers_hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+
+
+<h2>Found <%= pluralize @campaigns.size, "campaign" %> nearby</h2>
+<% @campaigns.each do |campaign| %>
+  <div class="well">
+    <%= link_to campaign.title, campaign %>
+  </div>
+<% end %>

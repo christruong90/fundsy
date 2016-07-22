@@ -3,7 +3,12 @@ Rails.application.routes.draw do
     resources :pledges, only: [:create]
   end
 
+  resources :nearby_campaigns, only: [:index]
+
   resources :users, only: [:new, :create]
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   root "campaigns#index"
   # The priority is based upon order of creation: first created -> highest priority.
